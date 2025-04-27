@@ -1,0 +1,141 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    /* Staplar innehållet vertikalt */
+    align-items: center;
+    /*Centrerar innehållet */
+    background-color: #32008f;
+    color: white;
+    justify-content: space-between;
+    /* Skjuter ner `nav` */
+    position: relative;
+}
+
+header h1 {
+    font-size: 2rem;
+    margin: 0;
+}
+
+header nav {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    /* Staplar innehållet vertikalt */
+    justify-content: flex-end;
+    /* Skjuter ner `ul` så långt det går */
+    position: relative;
+}
+
+header nav ul {
+    /* background-color: aliceblue; */
+    display: flex;
+    flex-direction: row;
+    /* margin: 10px 0; */
+    margin-top: 1rem;
+    list-style: none;
+    /* gap: 20px; */
+    justify-content: center;
+    bottom: 0px;
+}
+
+header nav ul li {
+    display: inline-block;
+    /* padd ing: 0 10px; */
+    color: black;
+    background-color: #c8b3f9;
+    position: relative;
+    bottom: 0px;
+}
+
+header nav ul li a {
+    display: inline-block;
+    padding: 0 2rem;
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    border: #32008f 2px solid;
+}
+
+.mainsection h2,
+.inputsection h2{
+    font-size: 2rem;
+    margin: 0px;
+    text-align: center;
+}
+
+.mainsection p {
+    font-size: 1rem;
+    margin: 0 0 50px;
+    text-align: center;
+}
+
+.books {
+    width: 80%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-bottom: 5rem;
+}
+
+.books h2 {
+    font-size: 1.5rem;
+    margin: 10px 0;
+    text-align: left;
+}
+.newbook,
+.booklist {
+    background-color: #32008f1d;
+    padding: 10px;
+    border-radius: 5px;
+    /* width: 100%; */
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.newbook {
+    width: 60%;
+    margin: 0 auto;
+}
+
+.booklist p {
+    margin: 5px 0;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: left;
+}
+
+.booklist span {
+    font-weight: normal;
+}
+
+form textarea {
+    max-width: 100%;
+    height: 100px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}   
+
+footer {
+    background-color: #32008f;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+}

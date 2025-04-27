@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/input.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Moment 3 - Backend</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="active">Start</a></li>
+                <li><a href="new.html">Ny</a></li>
+                <li><a href="about.html">Om</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="inputsectionn" class="inputsection">
+            <h2>Ny bokrescension</h2>
+            
+            <div id="newbook" class="newbook">
+                <form id="newBookForm">
+                    <label for="title">Titel:</label><br>
+                    <input type="text" id="title" name="title" required><br><br>
+
+                    <label for="author">Författare: <span title="För att ange mer än en författare, separera med ',' mellan varje författare!">?</span></label><br>
+                    <input type="text" id="author" name="author" required><br><br>
+
+                    <label for="rating">Betyg:</label><br>
+                    <input type="number" name="rating" id="rating" min="1" max="5" step="0.1" required><br><br>
+
+                    <label for="review">Recension:</label><br>
+                    <textarea id="review" name="review" required></textarea><br><br>
+
+                    <button type="submit">Skicka</button>
+                </form>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 - <a href="mailto:tolu2403@student.miun.se">tolu2403@student.miun.se</a></p>
+    </footer>
+</body>
+</html>
