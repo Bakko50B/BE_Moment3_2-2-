@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Backend 3 - Ny </title>
     <link rel="stylesheet" href="css/style.css">
     <script src="js/input.js" defer></script>
 </head>
@@ -12,8 +12,8 @@
         <h1>Moment 3 - Backend</h1>
         <nav>
             <ul>
-                <li><a href="index.html" class="active">Start</a></li>
-                <li><a href="new.html">Ny</a></li>
+                <li><a href="index.html" >Start</a></li>
+                <li><a href="new.html" class="active">Ny</a></li>
                 <li><a href="about.html">Om</a></li>
             </ul>
         </nav>
@@ -23,18 +23,18 @@
             <h2>Ny bokrescension</h2>
             
             <div id="newbook" class="newbook">
-                <form id="newBookForm">
+                <form id="newbookform">
                     <label for="title">Titel:</label><br>
-                    <input type="text" id="title" name="title" required><br><br>
+                    <input type="text" id="title" name="title" required><br>
 
                     <label for="author">Författare: <span title="För att ange mer än en författare, separera med ',' mellan varje författare!">?</span></label><br>
-                    <input type="text" id="author" name="author" required><br><br>
+                    <input type="text" id="author" name="author" required placeholder="Vid mer än en, separera med ',' mellan varje författare"><br>
 
                     <label for="rating">Betyg:</label><br>
-                    <input type="number" name="rating" id="rating" min="1" max="5" step="0.1" required><br><br>
+                    <input type="number" name="rating" id="rating" min="1" max="5" step="0.1" required><br>
 
                     <label for="review">Recension:</label><br>
-                    <textarea id="review" name="review" required></textarea><br><br>
+                    <textarea id="review" name="review" required></textarea><br>
 
                     <button type="submit">Skicka</button>
                 </form>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MongoDB - OM</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Moment 3 - Backend</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Start</a></li>
+                <li><a href="new.html">Ny</a></li>
+                <li><a href="about.html" class="active">Om</a></li>
+            </ul>
+        </nav>
+
+    </header>
+    <main>
+
+        <div id="aboutsection">
+            <h2>OM</h2>
+
+        </div>
+        <section class="abouttext">
+            <h3>MongoDB</h3>
+            <p>Denna webbsida är en frontendapplikation som hämtar information från en backendserver. <br>
+                På backendsidan finns Express, MongoDB, Mongoose med mera som producerar ett api.</p>
+            <p>Att skapa APIer är det nya i denna kurs. <br>Denna gång med MongoDB som databassystem.</p>
+            <p>MongoDB är en NoSQL-databas som lagrar data i JSON-liknande format, vilket gör den flexibel och skalbar.
+                Den är populär för att hantera stora mängder ostrukturerad data och används ofta i moderna
+                webbapplikationer.</p>
+            <p>Därför är det bra att lära sig grunderna i det systemet.</p>
+            <h3>Kunskap</h3>
+            <p>Jag har lärt mig att skapa en backendapplikation med Express och MongoDB. Jag har också lärt mig att
+                använda Mongoose för att interagera med databasen och skapa modeller för mina data.</p>
+            <p>Det intressanta med MongoDB i kombination med Mongoose är att vissa bitar som normalt saknas i ett
+                NoSQL-&shy;databassystem är möjligt att skapa med Mongoose.
+                <br>Det jag syftar på är möjligheten med ett schema för datatyperna som ska hanteras i databasen.
+            </p>
+            <h3>Skillnader mot relationsdatabaser</h3>
+            <p>I ett relations&shy;databassystem är det viktigt att undvika redundans, medan det snarare verkar som om
+                redundans är något bra i ett NoSQL-system. <br>
+                Det finns inga kopplingar till andra relationer/tabeller i en MongoDb-databas utan all information ska
+                in i en kollektion (collection) och i ett dokument.</p>
+            <p>Om vi tittar på det exempel som jag valt att göra i min uppgift så skulle författarna hamnat i en egen
+                tabell för att kopplas till en eller flera bok&shy;recension(er) med koppling som en främmande nyckel. <br>I
+                MongoDB placeras all
+                information i ett och samma dokument, till och med i det fall där det finns mer än en författare på en
+                bok.</p>
+            <h3>Problem</h3>
+            <p> Jag började mitt arbete med att skapa en databas och en kollektion i MongoDBs grafiska gränssnitt
+                Compass. <br>Det var inga problem.</p>
+            <p>Problem fick jag dock när jag inte lyckades koppla min kollektion med namn "review" till serversidans
+                server.js.</p>
+            <p>Jag hade skapat giltiga och korrekta routers på serversidan utan inblandning av databaser. Sen ville jag
+                koppla ihop dessa med databasens hämtning av information. <br>
+                Det fungerade inte som förväntat. En tom array ([ ]) returnerades.</p>
+            <h3>Compass</h3>
+            <p>För att se vad som hände gick jag in i Compass (MongoDBs grafiska användar&shy;gränssnitt) för att se om jag
+                kunde lösa det där. Tyvärr så märkte jag ingen skillnad där och då. <br>Jag insåg då att databasen och
+                dess
+                kollektioner inte var uppdaterade, så en omstart av Compass blev nästa steg. (Jag behöver lära mig hur
+                en databas eller kollektion uppdataras i Compass.)</p>
+            <p>Efter omstart av Compass upptäckte jag att det skapats en till kollektion (collection) med namnet
+                "reviews", vilket på sätt
+                och vis kan tyckas vara logiskt då vi pratar plural på engelska, men i min värld var det väldigt
+                konstigt! <br>Jag borde kunnat koppla en kollektion med "riktigt" namn i Moongose på server.js och
+                förvänta mig att det sparas i den kollektionen, i stället för att det skapas en ny kollection med ett
+                "helt" annat namn. </p>
+            <p>Att MongoDB sätter ett plural-s efter namnet på en kollektion som ska anvädas är bara dumt. Tycker i alla
+                fall jag </p>
+            <p>I min kod står det <br><code>const Review = mongoose.model('review', bookSchema); </code><br>, men
+                kollektionen
+                heter reviews i själva databassystemet.</p>
+            <p>Det gäller att komma ihåg det nästa gång jag ska jobba med MongoDB. </p>
+            <p>Efter flytt av min data från review till reviews så fungerade det som väntat.
+            </p>
+            <p>Denna struliga och konstiga egenhet kostade en del tid. <br>
+                Jag tror att det nämndes något om detta på föreläsningen, men just när jag skriver detta så är
+                förvirringen stor även på detta område.</p>
+            <h2>Denna sida</h2>
+            <h3>Vanlig html och css</h3>
+            <p>För denna sida har jag använt vanlig html/css utan något byggverktyg som stöd. Ingen Parcel, Svelte, Vite
+                eller något liknande finns inblandat.</p>
+            <h3>Problem</h3>
+            <p>Vid skapandet av själva visningen av böckerna som är recenserade så flöt det på väldigt bra. <br>När jag
+                gjorde formuläret för att lägga in nya böcker så stötte jag på problem med att få in nya dokument i
+                databasen. <br>Min webbläsare svarade med ett 405-fel, vilket kändes extra frustrerande då jag inte
+                skrivit eller gett någon responsstatus på serversidan med just den statuskoden. </p>
+            <p>Självklart löste jag det till slut, men lösningen var enklare än förväntat. <br>Jag hade glömt att skapa
+                ett inputfält för ratingen som jag satt som obligatoriskt i Mongoose-schemat. Med tillfälliga utskrifter
+                i konsollen så såg jag felet. </p>
+            <h3>Sortering</h3>
+            <p>Jag har löst sorteringen av mina "poster" utifrån titel på böckerna. <br>Den funktionen skapade jag lite
+                senare och inte direkt vid skapandet av index-sidan. </p>
+            <p>Min första sorteringslösning verkade fungera korrekt, då allt visades enligt normal sortering. Med
+                tal/siffror före text. <br> Efter att jag matat in en ny titel/bok i databasen så fungerade inte
+                sorteringen
+                som den skulle. </p>
+            <h3>Lösning</h3>
+            <p>Jag fick söka ett tag på nätet efter en lösning om detta. <br>Förslag på lösning inbegriper regulära
+                uttryck, som går ut på att kontrollera om titeln på boken innehåller siffror. På köpet fick jag lära mig
+                lite om reguljära uttryck. Och inte minst:<br>Sorteringen blir rätt!</p>
+            <h2>Slutsats</h2>
+            <p>Att jobba med an annan typ av databas har varit kul.</p>
+            <p>Denna gång har jag valt att inte implementera några av de valfria funktioner som kunnat göra sidan lite
+                extra användbar. Jag tänker på radering och uppdatering av poster. Dock gjorde jag detta i föregående
+                uppgift som hanterar API/&shy;Backend/&shy;Frontend som i denna uppgift, men som har mySql som databas&shy;hanterare.
+                <br>Routers för update och delete finns dock med på serversidan. Och en implementering av dessa skulle
+                kunnat göras på
+                liknande sätt som i moment 2_2. </p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 - <a href="mailto:tolu2403@student.miun.se">tolu2403@student.miun.se</a></p>
+    </footer>
+
+</body>
+
+</html>

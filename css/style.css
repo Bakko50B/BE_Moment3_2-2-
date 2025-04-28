@@ -1,7 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+    line-height: 1.7;
+}
+
+main {
+    padding-bottom: 4rem;
 }
 
 header {
@@ -33,25 +46,38 @@ header nav {
 }
 
 header nav ul {
-    /* background-color: aliceblue; */
+
     display: flex;
     flex-direction: row;
-    /* margin: 10px 0; */
     margin-top: 1rem;
     list-style: none;
-    /* gap: 20px; */
     justify-content: center;
     bottom: 0px;
 }
 
 header nav ul li {
     display: inline-block;
-    /* padd ing: 0 10px; */
     color: black;
     background-color: #c8b3f9;
     position: relative;
     bottom: 0px;
+    transition: .6s linear;
+}   
+
+header nav ul li:hover {
+    background-color: #580bffc3;   
 }
+
+header nav ul li a:hover {
+    color: white;
+    transition: .6s linear;
+}
+
+header nav ul li a:active {
+    color: white;
+    background-color: #32008f;
+}
+
 
 header nav ul li a {
     display: inline-block;
@@ -63,8 +89,14 @@ header nav ul li a {
     border: #32008f 2px solid;
 }
 
+header nav ul li .active{
+    background-color: #32008f;
+    color: white;
+    border: whitesmoke 2px solid;
+}
+
 .mainsection h2,
-.inputsection h2{
+.inputsection h2 {
     font-size: 2rem;
     margin: 0px;
     text-align: center;
@@ -90,8 +122,10 @@ header nav ul li a {
     margin: 10px 0;
     text-align: left;
 }
+
 .newbook,
-.booklist {
+.booklist,
+.abouttext {
     background-color: #32008f1d;
     padding: 10px;
     border-radius: 5px;
@@ -100,10 +134,79 @@ header nav ul li a {
     flex-direction: column;
     gap: 5px;
 }
+.abouttext  {
+    max-width: 870px;
+    width: 80%;
+    margin: 0 auto 4rem;
+}
+
+.abouttext p{
+    font-size: 1.4rem;
+    line-height: 1.8rem;
+    margin: 0 0 1rem 0;
+    text-align: left;
+}
+
+.abouttext code{
+    background-color: #c8b3f964;
+   
+    font-size: 1rem;
+    font-style: italic;
+    letter-spacing: .2rem;
+}
+
+#aboutsection {
+   text-align: center;
+}
+
 .newbook {
     width: 60%;
     margin: 0 auto;
 }
+
+#newbookform label {
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: left;
+}
+
+#newbookform input[type="text"],
+#newbookform input[type="number"],
+#newbookform textarea {
+    max-width: 100%;
+    width: 100%;
+    padding: 2px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+
+#newbookform input[type="number"] {
+    max-width: 100%;
+    width: 3rem;
+    padding: 2px;
+}
+
+#newbookform button[type="submit"] {
+    background-color: #32008f;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: .6s linear;
+
+}
+
+#newbookform button[type="submit"]:hover {
+    background-color: #5a0bff;
+    box-shadow: 10px 10px 10px #5a0bff;
+    scale: 1.1;
+    transform: translate(5px, 5px);
+}
+
 
 .booklist p {
     margin: 5px 0;
@@ -123,7 +226,7 @@ form textarea {
     border-radius: 5px;
     border: 1px solid #ccc;
     font-size: 1rem;
-}   
+}
 
 footer {
     background-color: #32008f;
@@ -138,4 +241,20 @@ footer {
 footer a {
     color: white;
     text-decoration: none;
+}
+
+@media (max-width: 960px) {
+    header nav ul {
+        align-items: center;
+    }
+
+    .books {
+        grid-template-columns: 1fr;
+        width: 96%;
+    }
+    .abouttext,
+    .newbook {
+        width: 96%;
+        
+    }
 }
