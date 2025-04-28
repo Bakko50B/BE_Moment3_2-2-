@@ -1,4 +1,4 @@
-document.getElementById("newBookForm").addEventListener("submit", async (event) => {
+document.getElementById("newbookform").addEventListener("submit", async (event) => {
     event.preventDefault(); // Hindrar att formuläret skickas på vanligt sätt
 
     // Hämta värden från input-fälten
@@ -10,7 +10,7 @@ document.getElementById("newBookForm").addEventListener("submit", async (event) 
     // Skapa objektet att skicka till API
     const newBook = {
         title: title,
-        author: author.split(",").map(a => a.trim()), // Om flera författare anges, dela upp dem
+        author: author.split(",").map(a => a.trim()), // Om flera författare anges, dela upp dem med ',' mellan 
         rating: rating, 
         review: review
     };

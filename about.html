@@ -27,6 +27,7 @@
 
         </div>
         <section class="abouttext">
+            <h2>Serversidan - REST API</h2>
             <h3>MongoDB</h3>
             <p>Denna webbsida är en frontendapplikation som hämtar information från en backendserver. <br>
                 På backendsidan finns Express, MongoDB, Mongoose med mera som producerar ett api.</p>
@@ -48,10 +49,9 @@
                 Det finns inga kopplingar till andra relationer/tabeller i en MongoDb-databas utan all information ska
                 in i en kollektion (collection) och i ett dokument.</p>
             <p>Om vi tittar på det exempel som jag valt att göra i min uppgift så skulle författarna hamnat i en egen
-                tabell för att kopplas till en eller flera bok&shy;recension(er) med koppling som en främmande nyckel. <br>I
-                MongoDB placeras all
-                information i ett och samma dokument, till och med i det fall där det finns mer än en författare på en
-                bok.</p>
+                tabell, om det vore en realationsdatabas, för att kopplas till en eller flera bok&shy;recension(er) med
+                som en främmande nyckel.</p>
+                <p>I MongoDB placeras all information i ett och samma dokument.</p>
             <h3>Problem</h3>
             <p> Jag började mitt arbete med att skapa en databas och en kollektion i MongoDBs grafiska gränssnitt
                 Compass. <br>Det var inga problem.</p>
@@ -61,7 +61,8 @@
                 koppla ihop dessa med databasens hämtning av information. <br>
                 Det fungerade inte som förväntat. En tom array ([ ]) returnerades.</p>
             <h3>Compass</h3>
-            <p>För att se vad som hände gick jag in i Compass (MongoDBs grafiska användar&shy;gränssnitt) för att se om jag
+            <p>För att se vad som hände gick jag in i Compass (MongoDBs grafiska användar&shy;gränssnitt) för att se om
+                jag
                 kunde lösa det där. Tyvärr så märkte jag ingen skillnad där och då. <br>Jag insåg då att databasen och
                 dess
                 kollektioner inte var uppdaterade, så en omstart av Compass blev nästa steg. (Jag behöver lära mig hur
@@ -110,10 +111,12 @@
             <p>Att jobba med an annan typ av databas har varit kul.</p>
             <p>Denna gång har jag valt att inte implementera några av de valfria funktioner som kunnat göra sidan lite
                 extra användbar. Jag tänker på radering och uppdatering av poster. Dock gjorde jag detta i föregående
-                uppgift som hanterar API/&shy;Backend/&shy;Frontend som i denna uppgift, men som har mySql som databas&shy;hanterare.
+                uppgift som hanterar API/&shy;Backend/&shy;Frontend som i denna uppgift, men som har mySql som
+                databas&shy;hanterare.
                 <br>Routers för update och delete finns dock med på serversidan. Och en implementering av dessa skulle
                 kunnat göras på
-                liknande sätt som i moment 2_2. </p>
+                liknande sätt som i moment 2_2.
+            </p>
         </section>
     </main>
     <footer>
