@@ -129,10 +129,27 @@ header nav ul li .active {
     background-color: #32008f1d;
     padding: 10px;
     border-radius: 5px;
-    /* width: 100%; */
     display: flex;
     flex-direction: column;
     gap: 5px;
+}
+
+
+.delete {
+    display: inline-block;
+    width: 100%;
+    font-size: 1.3rem;
+    background-color: rgba(255, 0, 0, 0.685);
+    margin-top: auto;
+    transition: .6s ease-in-out;
+}
+
+.delete:hover {
+    background-color: red;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 10px 10px 10px rgba(255, 0, 0, 0.685);
+    /* scale: 1.1; */
 }
 
 .abouttext {
@@ -167,7 +184,24 @@ header nav ul li .active {
 }
 
 #aboutsection {
+    background-color: #32008f;
+    color: white;
+    max-width: 870px;
+    width: 80%;
+    margin: 0 auto;
+    padding: 10px
+
+}
+#aboutsection h2 {
     text-align: center;
+    font-size: 2.5rem;
+}
+
+#aboutsection p {
+    /* text-align: center; */
+    font-size: 1.5rem;
+    line-height: 2rem;
+    margin: 0 0 1rem 0;
 }
 
 .newbook {

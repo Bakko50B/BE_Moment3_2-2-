@@ -39,7 +39,8 @@ async function getData() {
                 <p>Författare:<br><span>${book.author.join("<br>")}</span></p>
                 <p>Recension:<br><span>${book.review}</span></p>
                 <p>Rating: <span>${book.rating}</span></p>
-            `;
+                <button class="delete" data-id="${book._id}" onclick="deleteBook('${book._id}')">Ta bort</button>
+                `;
         
             myBookDivEl.appendChild(bookDiv);               // Lägg till den skapade div i huvudcontainern
         });
@@ -48,5 +49,39 @@ async function getData() {
         console.error('Error fetching data:', error);
     }
 }
+
+// Funktion för att ta bort en bok
+
+async function deleteBook(id) {
+    if (!confirm("Är du säker på att du vill ta bort denna bok?")) {
+        return;                         
+    }
+
+    // console.log(id);  /kontrollera att id:t är korrekt
+    // alert(id);
+
+    const url = `http://127.0.0.1:3000/reviews/${id}`; // URL till API:et för att ta bort en bok    
+
+    try {
+        const response = await fetch(url, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        console.log('Book deleted:', data);
+
+        getData(); // Hämta data igen för att uppdatera listan
+    } catch (error) {
+        console.error('Error deleting book:', error);
+    }
+}
+
 
 getData();
